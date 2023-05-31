@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>อัปโหลดไฟล์ CSV และบันทึกลงในฐานข้อมูล</title>
+    <meta charset="utf8">
+</head>
+<body>
+    <h2>อัปโหลดไฟล์ CSV และบันทึกลงในฐานข้อมูล</h2>
+    <form action="uploadStudent.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv">
+            <label >ปีการศึกษา</label>
+            <input type="text" name="numberYear" placeholder="25**">
+            <label >ภาคการศึกษา</label>
+            <input type="text" name="numberTerm" placeholder="1 or 2 or 3">
+            <input type="submit" value="อัปโหลด">
+    </form>
+</body>
+</html>
