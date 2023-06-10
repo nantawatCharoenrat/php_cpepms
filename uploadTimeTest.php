@@ -40,7 +40,9 @@ if (isset($_FILES["file"])) {
                 // $column1 เก็บ timeTest_id
                 $column1 = $conn->real_escape_string($data[0]);  // แก้ไขตามคอลัมน์ที่ต้องการ
                 // $column2 เก็บ timeTest_date
-                $column2 = $conn->real_escape_string($data[1]); 
+                $column2 = $conn->real_escape_string($data[1]);
+                $testdate= explode("/",$column2); 
+                $column2 = $testdate[2]."-".$testdate[1]."-".$testdate[0];
                 // $column3 เก็บ start_time
                 $column3 = $conn->real_escape_string($data[2]);
                 // $column4 เก็บ stop_time
