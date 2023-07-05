@@ -73,7 +73,7 @@ if (isset($_FILES["file"])) {
                     continue;
                 }    
                 //เตรียมคำสั่ง SQL
-                $sql = "INSERT INTO student(student_id, student_pass, name, lastname, year, term, email)  VALUES ('$column1','$column2','$column3','$column4','$column5','$column6','$column7');";
+                $sql = "INSERT INTO student(student_id, student_password, firstname, lastname, year, term, email)  VALUES ('$column1','$column2','$column3','$column4','$column5','$column6','$column7');";
 
                     // เรียกใช้คำสั่ง SQL
                     if ($conn->query($sql) === TRUE) {
