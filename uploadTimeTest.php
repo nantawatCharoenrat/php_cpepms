@@ -36,36 +36,36 @@ if (isset($_FILES["file"])) {
             foreach ($rows as $row) {
                 $i++;
                 if($i>=2){
-                $data = str_getcsv($row);
-                // $column1 เก็บ timeTest_id
-                $column1 = $conn->real_escape_string($data[0]);  // แก้ไขตามคอลัมน์ที่ต้องการ
-                // $column2 เก็บ timeTest_date
-                $column2 = $conn->real_escape_string($data[1]);
-                $testdate= explode("/",$column2); 
-                $column2 = $testdate[2]."-".$testdate[1]."-".$testdate[0];
-                // $column3 เก็บ start_time
-                $column3 = $conn->real_escape_string($data[2]);
-                // $column4 เก็บ stop_time
-                $column4 = $conn->real_escape_string($data[3]);
-                // $column5 เก็บ room_number
-                $column5 = $conn->real_escape_string($data[4]);
-                // $column6 เก็บ project_id
-                $column6 = $conn->real_escape_string($data[5]);
+                    $data = str_getcsv($row);
+                    // $column1 เก็บ timeTest_id
+                    $column1 = $conn->real_escape_string($data[0]);  // แก้ไขตามคอลัมน์ที่ต้องการ
+                    // $column2 เก็บ timeTest_date
+                    $column2 = $conn->real_escape_string($data[1]);
+                    $testdate= explode("/",$column2); 
+                    $column2 = $testdate[2]."-".$testdate[1]."-".$testdate[0];
+                    // $column3 เก็บ start_time
+                    $column3 = $conn->real_escape_string($data[2]);
+                    // $column4 เก็บ stop_time
+                    $column4 = $conn->real_escape_string($data[3]);
+                    // $column5 เก็บ room_number
+                    $column5 = $conn->real_escape_string($data[4]);
+                    // $column6 เก็บ project_id
+                    $column6 = $conn->real_escape_string($data[5]);
                 
-                echo  $column1." ".$column2." ".$column3." ".$column4." ".$column5." ".$column6;
-                echo "-----<br>";
-                echo  $data[0]." ".$data[1]." ".$data[2]." ".$data[3]." ".$data[4]." ".$data[5];
-                echo "-----<br>";
-                if((empty( $data[0] ))){
-                    echo "<br>continue<br>";
-                    continue;
-                } 
-                if(($data[0][0] != "t") && ($data[0][1] != "t")){
-                    echo "<br>continue<br>";
-                    continue;
-                }    
-                //เตรียมคำสั่ง SQL
-                $sql = "INSERT INTO timeTest(timeTest_id, timeTest_date, start_time, stop_time, room_number, project_id)  VALUES ('$column1','$column2','$column3','$column4','$column5','$column6');";
+                    echo $column1." ".$column2." ".$column3." ".$column4." ".$column5." ".$column6;
+                    echo "-----<br>";
+                    echo $data[0]." ".$data[1]." ".$data[2]." ".$data[3]." ".$data[4]." ".$data[5];
+                    echo "-----<br>";
+                    if (empty($data[0])) {
+                        echo "<br>continue<br>";
+                        continue;
+                    } 
+                    if ($data[0][0] != "t" && $data[0][1] != "t") {
+                        echo "<br>continue<br>";
+                        continue;
+                    }    
+                    //เตรียมคำสั่ง SQL
+                    $sql = "INSERT INTO timeTest(timeTest_id, timeTest_date, start_time, stop_time, room_number, project_id)  VALUES ('$column1','$column2','$column3','$column4','$column5','$column6');";
 
                     // เรียกใช้คำสั่ง SQL
                     if ($conn->query($sql) === TRUE) {
@@ -78,3 +78,4 @@ if (isset($_FILES["file"])) {
         }
     }
 }
+?>
